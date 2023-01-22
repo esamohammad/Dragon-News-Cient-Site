@@ -13,5 +13,7 @@ BASIC PROJECT SETUP
 
 /* 
 ROUTER SETUP
-1. 
+
+1. make folder for route- Routes -Routes.js make
+2. 
 */
