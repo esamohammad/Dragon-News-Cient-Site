@@ -12,3 +12,5 @@ const Category = () => {
 };
 
 export default Category;
+
+//total 26 news data get done.
