@@ -2,14 +2,71 @@ import React from 'react';
 import { Image } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-
+import { FaEye, FaRegBookmark, FaShareAlt, FaStar } from 'react-icons/fa';
 const NewSummaryCard = ({ news }) => {
    console.log(news)
-   const { _id, title, author, details, image_url, rating, total_view } = news;
+   const { _id, title, author, details, image_url } = news;
 
    return (
-      <Card className="">
-         <Card.Header>Featured</Card.Header>
+      <Card className="mb-5">
+         {/* //💥💥💥💥💥💥💥💥💥💥💥💥💥 */}
+         <Card.Header className='d-flex justify-content-between align-items-center'>
+
+
+
+
+
+            <div className='d-flex '>
+               {/* //💥💥💥💥💥💥 */}
+               {/* Author image */}
+               <Image
+                  roundedCircle
+                  className='me-2'
+                  src={author?.img}
+                  style={{ height: '60px' }}
+               ></Image>
+               {/* //💥💥💥💥💥💥 */}
+
+
+
+
+
+               {/* //💥💥💥💥💥💥 */}
+               <div>
+                  {/* Author name and p.date */}
+                  <p className='mb-1'>{author?.name}</p>
+                  <p >{author?.published_date}</p>
+               </div>
+               {/* //💥💥💥💥💥💥 */}
+            </div>
+
+
+
+
+
+
+            <div>
+               {/* //💥💥💥💥💥💥 */}
+               {/* icons */}
+               <FaRegBookmark className='me-2'></FaRegBookmark>
+               <FaShareAlt></FaShareAlt>
+               {/* //💥💥💥💥💥💥 */}
+            </div>
+
+         </Card.Header>
+         {/* //💥💥💥💥💥💥💥💥💥💥💥💥💥 */}
+         {/* //💥💥💥💥💥💥 */}{/* //💥💥💥💥💥💥 */}
+
+
+
+
+
+
+
+
+
+
+         {/* //💥💥💥💥💥💥 */}{/* //💥💥💥💥💥💥 */}
          <Card.Body>
             <Card.Title>{title}</Card.Title>
             {/* //💥💥💥💥💥💥💥💥💥💥💥💥💥 */}
