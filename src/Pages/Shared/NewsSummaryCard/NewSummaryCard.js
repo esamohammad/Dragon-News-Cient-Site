@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { FaEye, FaRegBookmark, FaShareAlt, FaStar } from 'react-icons/fa';
 const NewSummaryCard = ({ news }) => {
    console.log(news)
-   const { _id, title, author, details, image_url } = news;
+   const { _id, title, author, details, image_url, rating, total_view } = news;
 
    return (
       <Card className="mb-5">
@@ -96,12 +96,41 @@ const NewSummaryCard = ({ news }) => {
                }
             </Card.Text>
             {/* //💥💥💥💥💥💥💥💥💥💥💥💥💥 */}
-
-
-
-
          </Card.Body>
-         <Card.Footer className="text-muted">2 days ago</Card.Footer>
+
+
+
+
+
+
+
+
+         {/* //💥💥💥💥💥💥💥💥💥💥💥💥💥 */}
+         <Card.Footer className="d-flex justify-content-between ">
+
+
+
+
+            {/* //💥💥💥💥 */}
+            <div>
+               <FaStar className='text-warning me-2'></FaStar>
+               <span>{rating?.number}</span>
+            </div>
+
+
+
+
+
+            {/* //💥💥💥💥 */}
+            <div>
+               <FaEye className='me-2'></FaEye>
+               <span>{total_view}</span>
+            </div>
+
+
+
+         </Card.Footer>
+         {/* //💥💥💥💥💥💥💥💥💥💥💥💥💥 */}
       </Card>
    );
 };
