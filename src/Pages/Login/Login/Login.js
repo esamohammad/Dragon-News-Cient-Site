@@ -8,6 +8,7 @@ import { AuthContext } from '../../../countext/AuthProvider/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('');
+    //error
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate(); //rederect💥💥
 
@@ -21,7 +22,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                setError('');
+                setError('');  //error💥
                 navigate('/') //rederect💥💥
             })
             .catch(error => {
