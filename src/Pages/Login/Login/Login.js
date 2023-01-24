@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom'; //rederect💥💥
+import { useLocation, useNavigate } from 'react-router-dom'; //rederect💥💥
 import { AuthContext } from '../../../countext/AuthProvider/AuthProvider';
 
 
@@ -10,20 +10,32 @@ const Login = () => {
     const [error, setError] = useState('');
     //error
     const { signIn } = useContext(AuthContext);
-    const navigate = useNavigate(); //rederect💥💥
+    const navigate = useNavigate();
+
+
+
+    //rederect source 💥💥💥💥💥💥💥💥
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    //rederect source end 💥💥💥💥💥💥💥💥
+
+
+
 
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+
         signIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
                 setError('');  //error💥
-                navigate('/') //rederect💥💥
+                navigate(from, { replace: true });
+                //rederect💥💥
             })
             .catch(error => {
                 console.error(error)
