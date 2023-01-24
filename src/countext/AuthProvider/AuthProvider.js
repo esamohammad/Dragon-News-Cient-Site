@@ -1,11 +1,11 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signIn, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signIn, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../../Firebase/Firebase.config';
 
 
 export const AuthContext = createContext();
-const auth = getAuth(app);
-
+const auth = getAuth(app); //👨‍👨‍👧‍👦👨‍👨‍👧‍👦
+//jehetu ache tai no parameter👨‍👨‍👧‍👦👨‍👨‍👧‍👦
 
 
 const AuthProvider = ({ children }) => {
@@ -35,6 +35,12 @@ const AuthProvider = ({ children }) => {
    const updateUserProfile = (profile) => {
       return updateProfile(auth.currentUser, profile);
    }
+
+
+  //send verification mail-👨‍👨‍👧‍👦👨‍👨‍👧‍👦
+   const verifyEmail = () =>{
+      return sendEmailVerification(auth.currentUser);
+  }
 
 
 
@@ -69,6 +75,7 @@ const AuthProvider = ({ children }) => {
       providerLogin,
       logOut,
       updateUserProfile, //🌟🌟
+      verifyEmail,//👨‍👨‍👧‍👦👨‍👨‍👧‍👦
       createUser,
       signIn
    };

@@ -1,3 +1,4 @@
+import toast from 'react-hot-toast';
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -13,7 +14,8 @@ const Register = () => {
    const [accepted, setAccepted] = useState(false);
 
 
-   const { createUser, updateUserProfile } = useContext(AuthContext);
+   const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+   //👨‍👨‍👧‍👦👨‍👨‍👧‍👦verifyEmail
 
 
    const handleSubmit = event => {
@@ -32,6 +34,9 @@ const Register = () => {
             setError('');  //error💥
             form.reset();
             handleUpdateUserProfile(name, photoURL); //🌟🌟
+            handleEmailVerification(); //👨‍👨‍👧‍👦👨‍👨‍👧‍👦
+            toast.success('Please verify your email address.')
+
          })
          .catch(e => {
             console.error(e)
@@ -58,6 +63,14 @@ const Register = () => {
 
 
 
+   //👨‍👨‍👧‍👦👨‍👨‍👧‍👦verifyEmail
+   const handleEmailVerification = () => {
+      verifyEmail()
+         .then(() => { })
+         .catch(error => console.error(error));
+   }
+
+
 
 
    const handleAccepted = event => {
@@ -65,6 +78,7 @@ const Register = () => {
    }
 
 
+   
 
    return (
       <Form onSubmit={handleSubmit}>
@@ -116,3 +130,5 @@ const Register = () => {
 };
 
 export default Register;
+
+// https://react-hot-toast.com/
