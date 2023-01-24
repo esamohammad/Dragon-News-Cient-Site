@@ -13,7 +13,7 @@ const Register = () => {
    const [accepted, setAccepted] = useState(false);
 
 
-   const { createUser } = useContext(AuthContext);
+   const { createUser, updateUserProfile } = useContext(AuthContext);
 
 
    const handleSubmit = event => {
@@ -23,7 +23,7 @@ const Register = () => {
       const photoURL = form.photoURL.value;
       const email = form.email.value;
       const password = form.password.value;
-      console.log(name, photoURL, email, password);
+      // console.log(name, photoURL, email, password);
 
       createUser(email, password)
          .then(result => {
@@ -31,18 +31,41 @@ const Register = () => {
             console.log(user);
             setError('');  //error💥
             form.reset();
+            handleUpdateUserProfile(name, photoURL); //🌟🌟
          })
          .catch(e => {
             console.error(e)
             setError(e.message);
-         })
+         });
+
    }
+
+
+   //register ar user name and photo store-🌟🌟
+   const handleUpdateUserProfile = (name, photoURL) => {
+      const profile = {
+         displayName: name,
+         photoURL: photoURL
+      }
+
+      updateUserProfile(profile)
+         .then(() => { })
+         .catch(error => console.error(error));
+   }
+   //🌟🌟
+
+
+
+
+
+
+
    const handleAccepted = event => {
       setAccepted(event.target.checked)
    }
 
 
-   
+
    return (
       <Form onSubmit={handleSubmit}>
          <Form.Group className="mb-3" controlId="formBasicEmail">
