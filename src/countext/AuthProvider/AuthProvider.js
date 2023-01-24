@@ -37,10 +37,10 @@ const AuthProvider = ({ children }) => {
    }
 
 
-  //send verification mail-👨‍👨‍👧‍👦👨‍👨‍👧‍👦
-   const verifyEmail = () =>{
+   //send verification mail-👨‍👨‍👧‍👦👨‍👨‍👧‍👦
+   const verifyEmail = () => {
       return sendEmailVerification(auth.currentUser);
-  }
+   }
 
 
 
@@ -55,7 +55,13 @@ const AuthProvider = ({ children }) => {
    useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
          console.log('inside auth state change', currentUser);
-         setUser(currentUser)
+
+         if (currentUser === null || currentUser.emailVerified) {
+            setUser(currentUser);
+         }
+         //email verification hard-tricky.
+         // 💖💖💖 Nevigation Block
+
          setLoading(false);
       });
 
@@ -76,6 +82,7 @@ const AuthProvider = ({ children }) => {
       logOut,
       updateUserProfile, //🌟🌟
       verifyEmail,//👨‍👨‍👧‍👦👨‍👨‍👧‍👦
+      setLoading, // E.V - loading error
       createUser,
       signIn
    };

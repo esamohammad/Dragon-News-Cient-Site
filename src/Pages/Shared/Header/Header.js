@@ -42,7 +42,7 @@ const Header = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">
+                        <>
 
                             {
                                 user?.uid ?
@@ -58,7 +58,8 @@ const Header = () => {
                                     </>
                             }
 
-                        </Nav.Link>
+                        </> 
+                        {/* warning solve */}
 
 
 
