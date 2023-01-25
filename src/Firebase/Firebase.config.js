@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-   apiKey: "AIzaSyBZI7YH7RP4JNYRmv53Gs0JLWvTe3kERbk",
-   authDomain: "dragon-news-89b07.firebaseapp.com",
-   projectId: "dragon-news-89b07",
-   storageBucket: "dragon-news-89b07.appspot.com",
-   messagingSenderId: "200341685175",
-   appId: "1:200341685175:web:f41b0eea6a7d1bbe4a9e32"
+   apiKey: process.env.REACT_APP_apiKey,
+   authDomain: process.env.REACT_APP_authDomain,
+   projectId: process.env.REACT_APP_projectId,
+   storageBucket: process.env.REACT_APP_storageBucket,
+   messagingSenderId: process.env.REACT_APP_messagingSenderId,
+   appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
@@ -20,3 +20,5 @@ export default app;
 
 
 //this is comes from the firebase.
+
+//firbase config ar .env.local akhan theke inter change hoiche 
