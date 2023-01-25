@@ -25,7 +25,7 @@ const Profile = () => {
    }
 
 
-   
+
    return (
       <Form onSubmit={handleSubmit}>
          <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -54,3 +54,6 @@ const Profile = () => {
 };
 
 export default Profile;
+
+
+//Here we just get image url but in this way we get all kinds of data ---- so keep learning 💝💝💥💥💝💝
