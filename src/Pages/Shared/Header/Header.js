@@ -41,13 +41,13 @@ const Header = () => {
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    <Nav>
+                    <Nav className='d-flex align-items-center'>
                         <>
 
                             {
                                 user?.uid ?
                                     <>
-                                        <span>{user?.displayName}</span>
+                                        <span >{user?.displayName}</span>
                                         <Button variant="light" onClick={handleLogOut}>Log out</Button>
                                     </>
                                     :
